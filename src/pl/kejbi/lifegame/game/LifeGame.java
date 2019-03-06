@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class LifeGame {
 
-    private static final int SIZE = 50;
-    private boolean board[][];
-    private int generation;
+    public static final int SIZE = 15;
+    private static boolean board[][];
+    private static int generation;
 
 
     public LifeGame(){
@@ -15,6 +15,18 @@ public class LifeGame {
             Arrays.fill(board[i],false);
         }
         generation = 0;
+    }
+
+    public static boolean isAlive(int x, int y){
+        return board[x][y];
+    }
+
+    public static void setAlive(int x, int y){
+        board[x][y] = true;
+    }
+
+    public static void setDead(int x, int y){
+        board[x][y] = false;
     }
 
     private int getIndex(int index){
@@ -64,5 +76,23 @@ public class LifeGame {
         return board[x][y] ? counter-1 : counter;
     }
 
+    public static int getSIZE() {
+        return SIZE;
+    }
 
+    public static boolean[][] getBoard() {
+        return board;
+    }
+
+    public static void setBoard(boolean[][] board) {
+        LifeGame.board = board;
+    }
+
+    public static int getGeneration() {
+        return generation;
+    }
+
+    public static void setGeneration(int generation) {
+        LifeGame.generation = generation;
+    }
 }
