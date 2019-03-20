@@ -1,6 +1,6 @@
 package pl.kejbi.lifegame.window;
 
-import javafx.scene.layout.StackPane;
+
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import pl.kejbi.lifegame.game.LifeGame;
@@ -14,7 +14,7 @@ public class Tile extends Rectangle{
             this.x = x;
             this.y = y;
             setFill(Color.BLUE);
-            setOnMouseClicked(event -> {
+            setOnMouseClicked(event ->{
                 if(LifeGame.isAlive(this.x, this.y)){
                     setFill(Color.BLUE);
                     LifeGame.setDead(this.x, this.y);
@@ -25,4 +25,13 @@ public class Tile extends Rectangle{
                 }
             });
         }
+
+    public void updateColor() {
+        if(LifeGame.isAlive(this.x, this.y)){
+            setFill(Color.ORANGE);
+        }
+        else{
+            setFill(Color.BLUE);
+        }
+    }
 }

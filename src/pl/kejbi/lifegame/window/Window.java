@@ -32,13 +32,15 @@ public class Window extends Application {
         Board board = new Board();
         root.setCenter(board);
 
+        //Bottom
+        BottomPanel bottomPanel = new BottomPanel(10, board);
+        root.setBottom(bottomPanel);
+
         return root;
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LifeGame game = new LifeGame();
-
         Scene scene = new Scene(createContent());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Life Game");

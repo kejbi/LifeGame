@@ -14,9 +14,16 @@ public class Board extends GridPane {
             for(int y = 0; y < LifeGame.SIZE; y++){
                 Tile tile = new Tile(x,y);
                 tiles[x][y] = tile;
-                add(tile,x,y);
+                add(tile,y,x);
             }
         }
+    }
 
+    public void updateBoard(){
+        for(int x = 0; x < LifeGame.SIZE; x++){
+            for(int y = 0; y < LifeGame.SIZE; y++){
+                tiles[x][y].updateColor();
+            }
+        }
     }
 }
