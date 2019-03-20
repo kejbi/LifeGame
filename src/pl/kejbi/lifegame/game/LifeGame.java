@@ -38,6 +38,7 @@ public class LifeGame {
     public static void updateBoard(){
         boolean newBoard[][] = new boolean[SIZE][SIZE];
         int neighbours;
+        boolean wholeDead = true;
         for(int x=0; x<SIZE; x++){
             for(int y=0; y<SIZE; y++){
                 neighbours = countNeighbours(x,y);
@@ -47,11 +48,13 @@ public class LifeGame {
                     }
                     else {
                         newBoard[x][y] = true;
+                        wholeDead = false;
                     }
                 }
                 else{
                     if(neighbours==3){
                         newBoard[x][y]=true;
+                        wholeDead = false;
                     }
                     else{
                         newBoard[x][y] = false;
@@ -60,6 +63,12 @@ public class LifeGame {
             }
         }
         board = newBoard;
+        if(wholeDead){
+            generation = 0;
+        }
+        else{
+            generation++;
+        }
     }
 
     private static int countNeighbours(int x, int y){
